@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Дашборд мониторинга облачной платформы</title>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- стили -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+
+<h1>📊 Дашборд мониторинга облачной платформы</h1>
+
+<div class="container">
+    <div class="card">
+        <h2>Коэффициент готовности</h2>
+        <canvas id="availabilityChart"></canvas>
+    </div>
+
+    <div class="card">
+        <h2>Время отклика (мс)</h2>
+        <canvas id="responseTimeChart"></canvas>
+    </div>
+
+    <div class="card">
+        <h2>QoS (%)</h2>
+        <canvas id="qosChart"></canvas>
+    </div>
+
+    <div class="card">
+        <h2>Сбои по типам</h2>
+        <canvas id="failuresChart"></canvas>
+    </div>
+
+    <div class="card">
+        <h2>Индекс стабильности</h2>
+        <canvas id="stabilityChart"></canvas>
+    </div>
+
+    <div class="card">
+        <h2>MTBF (часы)</h2>
+        <canvas id="mtbfChart"></canvas>
+    </div>
+</div>
+
+<p class="footer">Обновлено: <span id="timestamp">{{ last_updated }}</span> | Платформа: CloudHost Pro</p>
+
+<script>
+window.dashboardData = {
+    months: {{ metrics.months | tojson }},
+    metrics: {{ metrics | tojson }},
+    rawData: {{ DATA | tojson }},
+    lastUpdated: "{{ last_updated }}"
+};
+</script>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+</html>
