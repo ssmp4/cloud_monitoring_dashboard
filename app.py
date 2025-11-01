@@ -1,6 +1,7 @@
 # app.py
 from flask import Flask, render_template, redirect
 from main_funcs import calculate_metrics, DATA
+from config import NAME
 from datetime import datetime
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
@@ -20,7 +21,8 @@ def dashboard():
             "dashboard.html",
             metrics=metrics,
             DATA=DATA,
-            last_updated=last_updated
+            last_updated=last_updated,
+            name=NAME,
         )
     except Exception as e:
         return f"<h1>Ошибка: {e}</h1>", 500
