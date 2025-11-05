@@ -1,0 +1,86 @@
+/* main.css */
+
+:root {
+    --bg: #fff;
+    --text: #2c3e50;
+    --card-bg: #f9f9f9;
+    --border: #ddd;
+    --accent: #2575fc;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg: #1a1a1a;
+    --text: #e0e0e0;
+    --card-bg: #2d2d2d;
+    --border: #444;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    transition: background 0.3s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.app-header {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.app-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--accent);
+}
+
+.main-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.main-nav a,
+.main-nav button {
+    color: var(--text);
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1rem;
+}
+
+.app-content {
+    min-height: calc(100vh - 140px);
+    padding: 40px 0;
+}
+
+.app-footer {
+    padding: 30px 0;
+    border-top: 1px solid var(--border);
+    font-size: 0.9em;
+    color: var(--text);
+    opacity: 0.8;
+}

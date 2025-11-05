@@ -1,10 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block title %}Главная{% endblock %}
+
+{% block main_content %}
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Надёжность в реальном времени</h1>
+                <p class="lead">
+                    Следите за доступностью, временем отклика и стабильностью ваших облачных сервисов.
+                </p>
+                <div class="cta-group">
+                    <a href="/login" class="btn btn-primary">Войти в систему</a>
+                    <a href="/demo" class="btn btn-secondary">Посмотреть демо</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='imgs/dashboard-preview.png') }}" alt="Пример дашборда">
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Что вы получаете</h2>
+            <div class="cards-grid">
+                {% for feature in features %}
+                <div class="card">
+                    <span class="icon">{{ feature.icon }}</span>
+                    <h3>{{ feature.title }}</h3>
+                    <p>{{ feature.desc }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final">
+        <div class="container">
+            <h2>Готовы начать?</h2>
+            <a href="/demo" class="btn btn-primary large">Попробуйте демо прямо сейчас</a>
+        </div>
+    </section>
+{% endblock %}

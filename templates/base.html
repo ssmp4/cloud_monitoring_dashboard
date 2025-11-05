@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Система мониторинга облачных сервисов: доступность, время отклика, QoS.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="CloudMonitor — Демо">
+    <meta property="og:description" content="Посмотрите, как работает система мониторинга.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="TODO">
+    <meta name="theme-color" content="#2575fc">
+    <title>{% block title %}{% endblock %} | {{ site_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='imgs/favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="hdr_wrapper">
+            <h1><a href="/">{{ site_name }}</a></h1>
+            <nav>
+                <a href="/">Главная</a>
+                <a href="/demo">Демо</a>
+
+                <button id="theme-toggle" aria-label="Переключить тему">🌓</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main_content">
+        {% block main_content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="ftr_wrapper">
+            <p>{{ footer_text }}</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/base.js') }}" defer></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
